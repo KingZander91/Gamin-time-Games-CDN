@@ -239,6 +239,119 @@
       font-size: 1rem;
     }
 
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .modal {
+      background: linear-gradient(180deg, rgba(15, 23, 38, 0.96), rgba(7, 11, 20, 0.98));
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 28px;
+      padding: 32px 28px;
+      max-width: 460px;
+      width: calc(100% - 32px);
+      box-shadow: 0 32px 72px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(148, 163, 184, 0.12);
+      display: grid;
+      gap: 20px;
+      animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .modal h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .modal p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 13px 18px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #020617;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.26);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.34);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
     @media (max-width: 640px) {
       header {
         flex-direction: column;
@@ -251,10 +364,29 @@
       .hero {
         gap: 10px;
       }
+      .modal {
+        padding: 24px 20px;
+      }
+      .modal h2 {
+        font-size: 1.15rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="modal-overlay" id="disclaimerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-icon">⚠️</div>
+        <h2>Important Reminder</h2>
+      </div>
+      <p>Don't use this during school! Only use it during freetime, or after/before school.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="closeModalBtn">Alright</button>
+      </div>
+    </div>
+  </div>
+
   <header>
     <div class="brand">
       <span></span>
@@ -362,6 +494,14 @@
 
     searchInput.addEventListener('input', (event) => filterGames(event.target.value));
     loadGames();
+
+    // Modal functionality
+    const disclaimerModal = document.getElementById('disclaimerModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    closeModalBtn.addEventListener('click', () => {
+      disclaimerModal.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
