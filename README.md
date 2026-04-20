@@ -1,12 +1,15 @@
-# Maths CDN - Your Own Unblocked Games Website!
+## Note, Most of the games, files, and whatever else is made my swarmintelli.
 
-Welcome to the Maths CDN! This is your one-stop shop for creating your very own unblocked games website. No more worrying about school filters or expensive setups. We've got everything you need to build a cool games site quickly and easily.
 
-## What is a Maths CDN?
+# Gamin Time CDN - Your Own Unblocked Games Website!
+
+Welcome to the Gamin Time CDN! This is your one-stop shop for creating your very own unblocked games website. No more worrying about school filters or expensive setups. We've got everything you need to build a cool games site quickly and easily.
+
+## What is The GAmin Time CDN?
 
 Think of it like a library for games. Instead of books, we have game links and pictures. You can borrow these links and put them on your own website. We take care of hosting the games and making sure they load fast, so you don't have to!
 
-## Why Use Maths CDN?
+## Why Use The Gamin Time CDN?
 
 * **Easy to Use:** We provide simple tools and tutorials so anyone can build a games site.
 * **Free:** You don't need to spend any money.
